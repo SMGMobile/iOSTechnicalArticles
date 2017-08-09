@@ -25,6 +25,27 @@
 - Controller中的通知栏视图本身进行滚动展示，其他区域不会滚动；或者Controller中只有通知栏视图；
 - Controller中的通知栏视图和同级的View同时滚动，类似支付宝首页的效果；
 
+### 视图
+- 默认数据的视图
+
+![默认数据](./SDNDataTypeDefault.png)
+
+- 全图片数据的视图
+
+![全图片数据](./SDNDataTypeFullImage.png)
+
+- 内容图片数据的视图
+
+![内容图片数据](./SDNDataTypeImage.png)
+
+- 富文本数据的视图
+
+![富文本数据](./SDNDataTypeRichText.png)
+
+- 自定义数据的实例视图（组件内不提供）
+
+![自定义数据](./SDNDataTypeCustom.png)
+
 ## 三、接口报文定义
 ### 请求
 body参数：
