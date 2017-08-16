@@ -218,8 +218,8 @@ action中的按钮参数：
                         "sourcePhoto": "17winAsk.png",
                         "sourceName": "亿企赢问答",
                         "notifyTime": "2017-08-03 14:59:53",
-                        "imageURL": "http://edu.17win.com/course/win/123321.png",
-                        "action": [
+                        "imageURL": "http://edu.17win.com/course/win/123321.png",
+                        "action": [
                             {
                                 "title": "查看在线的老师",
                                 "path": "http://ask.17win.com/zj/user",
