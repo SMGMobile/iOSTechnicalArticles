@@ -58,7 +58,7 @@ body参数：
 |accountID|否|账户ID，用来区分不同用户的数据，若为空则表示通用数据|
 |pageSize|否|分页大小，分页查询数据时的每页数据量|
 |pageNo|否|分页页码，分页查询数据时查询的页码|
-|dataList|否|数组，动态通知栏ID列表，若传值则服务端返回对应ID的数据，若不传则返回所有数据|
+|dataID|否|动态通知栏ID，若传值则服务端返回对应ID的数据，若不传则返回所有数据|
 
 ### 反馈
 body参数：
@@ -75,12 +75,6 @@ data参数：
 |参数      |是否必须|说明|
 |:--------|:---------:|:-------|
 |timestamp|是|时间戳，用于增量更新，第一期可以只支持全量更新|
-|dataList|是|json数组对象，通知栏数据列表|
-
-dataList中的通知栏数据参数：
-
-|参数      |是否必须|说明|
-|:--------|:---------:|:-------|
 |dataID|是|通知栏数据ID，如果一个APP中存在多个通知栏，用此字段进行区分|
 |items|是|json数组对象，通知栏项目列表|
 
@@ -133,17 +127,7 @@ action中的按钮参数：
     "accountID":"13838389438",
     "pageSize":10,
     "pageNo":0,
-    "dataList":[
-        {
-            "dataID": "001"
-        },
-        {
-            "dataID": "002"
-        },
-        {
-            "dataID": "003"
-        }
-    ]
+    "dataID": "001"
 }
 ```
 反馈报文：
@@ -155,138 +139,134 @@ action中的按钮参数：
     "data":
     {
         "timestamp": "1460452344",
-        "dataList": [
+        "dataID": "001",
+        "items": [
             {
-                "dataID": "001",
-                "items": [
+                "itemID": "001",
+                "dataType": "default",
+                "showType": "default",
+                "sourcePhoto": "declareAssistant.png",
+                "sourceName": "申报助手",
+                "notifyTime": "2017-08-03 14:59:53",
+                "message": "7月份申报成功",
+                "detail": "增值税申报已完成",
+                "action": [
                     {
-                        "itemID": "001",
-                        "dataType": "default",
-                        "showType": "default",
-                        "sourcePhoto": "declareAssistant.png",
-                        "sourceName": "申报助手",
-                        "notifyTime": "2017-08-03 14:59:53",
-                        "message": "7月份申报成功",
-                        "detail": "增值税申报已完成",
-                        "action": [
+                        "title": "查看",
+                        "path": "XXTaxService://XXDeclareResultTarget/show?period=201707&companyID=1234",
+                        "isMainAction": "YES",
+                        "extraInfo": ""
+                    }
+                ],
+                "extraInfo":"json字符串或json对象"
+            },
+            {
+                "itemID": "002",
+                "dataType": "default",
+                "showType": "default",
+                "sourcePhoto": "messageBox.png",
+                "sourceName": "消息盒子",
+                "notifyTime": "2017-08-03 14:59:53",
+                "message": "8月份税务新规提醒",
+                "detail": "",
+                "action": [
+                    {
+                        "title": "立即查看",
+                        "path": "http://news.17win.com/views/details/54593",
+                        "extraInfo": ""
+                    }
+                ],
+                "extraInfo":""
+            },
+            {
+                "itemID": "003",
+                "dataType": "fullImage",
+                "showType": "fullImage",
+                "imageURL": "http://edu.17win.com/course/win/123321.png",
+                "action": [
+                    {
+                        "title": "查看",
+                        "path": "XXTaxService://XXDeclareResultTarget/show?period=201707&companyID=1234",
+                        "isMainAction": "YES",
+                        "extraInfo": ""
+                    }
+                ],
+                "extraInfo":""
+            },
+            {
+                "itemID": "004",
+                "dataType": "image",
+                "showType": "image",
+                "sourcePhoto": "17winAsk.png",
+                "sourceName": "亿企赢问答",
+                "notifyTime": "2017-08-03 14:59:53",
+                "imageURL": "http://edu.17win.com/course/win/123321.png",
+                "action": [
+                    {
+                        "title": "查看在线的老师",
+                        "path": "http://ask.17win.com/zj/user",
+                        "extraInfo": [
                             {
-                                "title": "查看",
-                                "path": "XXTaxService://XXDeclareResultTarget/show?period=201707&companyID=1234",
-                                "isMainAction": "YES",
-                                "extraInfo": ""
+                                "needLogin": "YES"
                             }
-                        ],
-                        "extraInfo":"json字符串或json对象"
+                        ]
+                    }
+                ],
+                "extraInfo":""
+            },
+            {
+                "itemID": "005",
+                "dataType": "richText",
+                "showType": "richText",
+                "sourcePhoto": "invoiceAssistant.png",
+                "sourceName": "发票助手",
+                "notifyTime": "2017-08-03 14:59:53",
+                "imageURL": "http://user.17win.com/u/888888.png",
+                "message": "税友软件集团给您开具了电子发票",
+                "detail": "发票号码：12341234",
+                "action": [
+                    {
+                        "title": "查看发票",
+                        "path": "http://invoice.17win.com/i/12341234",
+                        "extraInfo": [
+                            {
+                                "needLogin": "YES"
+                            }
+                        ]
                     },
                     {
-                        "itemID": "002",
-                        "dataType": "default",
-                        "showType": "default",
-                        "sourcePhoto": "messageBox.png",
-                        "sourceName": "消息盒子",
-                        "notifyTime": "2017-08-03 14:59:53",
-                        "message": "8月份税务新规提醒",
-                        "detail": "",
-                        "action": [
+                        "title": "测算进项票",
+                        "path": "XXTaxService://XXInvoiceCalculateTarget/recerive?userID=888888",
+                        "extraInfo": [
                             {
-                                "title": "立即查看",
-                                "path": "http://news.17win.com/views/details/54593",
-                                "extraInfo": ""
+                                "needLogin": "YES",
+                                "needSelectCompany": "YES",
                             }
-                        ],
-                        "extraInfo":""
-                    },
+                        ]
+                    }
+                ],
+                "extraInfo":""
+            },
+            {
+                "itemID": "006",
+                "dataType": "custom",
+                "sourcePhoto": "http://user.17win.com/u/666666.png",
+                "sourceName": "发票助手",
+                "notifyTime": "2017-08-03 14:59:53",
+                "action": [
                     {
-                        "itemID": "003",
-                        "dataType": "fullImage",
-                        "showType": "fullImage",
-                        "imageURL": "http://edu.17win.com/course/win/123321.png",
-                        "action": [
-                            {
-                                "title": "查看",
-                                "path": "XXTaxService://XXDeclareResultTarget/show?period=201707&companyID=1234",
-                                "isMainAction": "YES",
-                                "extraInfo": ""
-                            }
-                        ],
-                        "extraInfo":""
-                    },
-                    {
-                        "itemID": "004",
-                        "dataType": "image",
-                        "showType": "image",
-                        "sourcePhoto": "17winAsk.png",
-                        "sourceName": "亿企赢问答",
-                        "notifyTime": "2017-08-03 14:59:53",
-                        "imageURL": "http://edu.17win.com/course/win/123321.png",
-                        "action": [
-                            {
-                                "title": "查看在线的老师",
-                                "path": "http://ask.17win.com/zj/user",
-                                "extraInfo": [
-                                    {
-                                        "needLogin": "YES"
-                                    }
-                                ]
-                            }
-                        ],
-                        "extraInfo":""
-                    },
-                    {
-                        "itemID": "005",
-                        "dataType": "richText",
-                        "showType": "richText",
-                        "sourcePhoto": "invoiceAssistant.png",
-                        "sourceName": "发票助手",
-                        "notifyTime": "2017-08-03 14:59:53",
-                        "imageURL": "http://user.17win.com/u/888888.png",
-                        "message": "税友软件集团给您开具了电子发票",
-                        "detail": "发票号码：12341234",
-                        "action": [
-                            {
-                                "title": "查看发票",
-                                "path": "http://invoice.17win.com/i/12341234",
-                                "extraInfo": [
-                                    {
-                                        "needLogin": "YES"
-                                    }
-                                ]
-                            },
-                            {
-                                "title": "测算进项票",
-                                "path": "XXTaxService://XXInvoiceCalculateTarget/recerive?userID=888888",
-                                "extraInfo": [
-                                    {
-                                        "needLogin": "YES",
-                                        "needSelectCompany": "YES",
-                                    }
-                                ]
-                            }
-                        ],
-                        "extraInfo":""
-                    },
-                    {
-                        "itemID": "006",
-                        "dataType": "custom",
-                        "sourcePhoto": "http://user.17win.com/u/666666.png",
-                        "sourceName": "发票助手",
-                        "notifyTime": "2017-08-03 14:59:53",
-                        "action": [
-                            {
-                                "title": "查看",
-                                "path": "XXTaxService://XXInvoiceTarget/statistics?userID=888888",
-                                "extraInfo": "{\"needLogin\": \"YES\"}"
-                            }
-                        ],
-                        "extraInfo": {
-                            "payAmount": "-30000.00",
-                            "payTitle": "7月份开具销项发票",
-                            "receiveAmount": "10000.00",
-                            "reveiveTitle": "7月份收到进项发票"
-                        }
-                    },
-                ]
-            }
+                        "title": "查看",
+                        "path": "XXTaxService://XXInvoiceTarget/statistics?userID=888888",
+                        "extraInfo": "{\"needLogin\": \"YES\"}"
+                    }
+                ],
+                "extraInfo": {
+                    "payAmount": "-30000.00",
+                    "payTitle": "7月份开具销项发票",
+                    "receiveAmount": "10000.00",
+                    "reveiveTitle": "7月份收到进项发票"
+                }
+            },
         ]
     }
 }
