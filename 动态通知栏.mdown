@@ -170,7 +170,7 @@ action中的按钮参数：
                 "action": [
                     {
                         "title": "立即查看",
-                        "path": "http://news.17win.com/views/details/54593",
+                        "path": "http://news.xxx.com/views/details/54593",
                         "extraInfo": ""
                     }
                 ],
@@ -180,7 +180,7 @@ action中的按钮参数：
                 "itemID": "003",
                 "dataType": "fullImage",
                 "showType": "fullImage",
-                "imageURL": "http://edu.17win.com/course/win/123321.png",
+                "imageURL": "http://edu.xxx.com/course/win/123321.png",
                 "action": [
                     {
                         "title": "查看",
@@ -195,14 +195,14 @@ action中的按钮参数：
                 "itemID": "004",
                 "dataType": "image",
                 "showType": "image",
-                "sourcePhoto": "17winAsk.png",
-                "sourceName": "亿企赢问答",
+                "sourcePhoto": "XXXAsk.png",
+                "sourceName": "问答",
                 "notifyTime": "2017-08-03 14:59:53",
-                "imageURL": "http://edu.17win.com/course/win/123321.png",
+                "imageURL": "http://edu.xxx.com/course/win/123321.png",
                 "action": [
                     {
                         "title": "查看在线的老师",
-                        "path": "http://ask.17win.com/zj/user",
+                        "path": "http://ask.xxx.com/zj/user",
                         "extraInfo": [
                             {
                                 "needLogin": "YES"
@@ -219,13 +219,13 @@ action中的按钮参数：
                 "sourcePhoto": "invoiceAssistant.png",
                 "sourceName": "发票助手",
                 "notifyTime": "2017-08-03 14:59:53",
-                "imageURL": "http://user.17win.com/u/888888.png",
-                "message": "税友软件集团给您开具了电子发票",
+                "imageURL": "http://user.xxx.com/u/888888.png",
+                "message": "给您开具了电子发票",
                 "detail": "发票号码：12341234",
                 "action": [
                     {
                         "title": "查看发票",
-                        "path": "http://invoice.17win.com/i/12341234",
+                        "path": "http://invoice.xxx.com/i/12341234",
                         "extraInfo": [
                             {
                                 "needLogin": "YES"
@@ -248,7 +248,7 @@ action中的按钮参数：
             {
                 "itemID": "006",
                 "dataType": "custom",
-                "sourcePhoto": "http://user.17win.com/u/666666.png",
+                "sourcePhoto": "http://user.xxx.com/u/666666.png",
                 "sourceName": "发票助手",
                 "notifyTime": "2017-08-03 14:59:53",
                 "action": [
